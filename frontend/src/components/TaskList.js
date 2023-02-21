@@ -4,7 +4,9 @@ import { toast } from "react-toastify";
 import Task from "./Task";
 import { URL } from "../App";
 import TaskForm from "./TaskForm";
+import SearchForm from "./SearchForm"
 import loadingImg from "../assets/loader.gif";
+
 
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
@@ -108,9 +110,20 @@ const TaskList = () => {
     setCompletedTasks(cTask);
   }, [tasks]);
 
+  const searchTask = (task) => {
+    setFormData({ name: task.name});
+    setTaskID(task._id);
+    
+  };
+
   return (
     <div>
       <h2>Task Manager</h2>
+      <SearchForm
+        searchTask={searchTask}
+        name = {name}
+        handleInputChange={handleInputChange}
+      />
       <TaskForm
         createTask={createTask}
         name={name}
@@ -118,6 +131,7 @@ const TaskList = () => {
         isEditing={isEditing}
         updateTask={updateTask}
       />
+      
       {tasks.length > 0 && (
         <div className="--flex-between --pb">
           <p>
@@ -149,6 +163,7 @@ const TaskList = () => {
                 getSingleTask={getSingleTask}
                 updateTask={updateTask}
                 setToComplete={setToComplete}
+                searchTask = {searchTask}
               />
             );
           })}

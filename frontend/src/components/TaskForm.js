@@ -6,16 +6,27 @@ const TaskForm = ({
   updateTask,
 }) => {
   return (
-    <form className="task-form" onSubmit={isEditing ? updateTask : createTask}>
-      <input
-        type="text"
-        placeholder="Add a task"
-        name="name"
-        value={name}
-        onChange={handleInputChange}
-      />
-      <button type="submit">{isEditing ? "Edit" : "Add"}</button>
-    </form>
+    (
+      <form className="search-form" onSubmit={name}>
+        <input type="text" placeholder="Search" />
+        <button type="submit">Search</button>
+      </form>
+    ),
+    (
+      <form
+        className="task-form"
+        onSubmit={isEditing ? updateTask : createTask}
+      >
+        <input
+          type="text"
+          placeholder="Add a task"
+          name="name"
+          value={name}
+          onChange={handleInputChange}
+        />
+        <button type="submit">{isEditing ? "Edit" : "Add"}</button>
+      </form>
+    )
   );
 };
 

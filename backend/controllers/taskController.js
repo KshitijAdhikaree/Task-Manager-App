@@ -2,7 +2,7 @@ const Task = require("../models/taskModel");
 
 const getTasks = async (req, res) => {
   try {
-    const tasks = await Task.find().limit(7);
+    const tasks = await Task.find().limit(5);
     res.status(200).json(tasks);
   } catch (error) {
     res.status(500).json({ msg: error.message });
@@ -61,10 +61,24 @@ const updateTask = async (req, res) => {
   }
 };
 
+const searchTask = async (req, res) => {
+    try {
+      const { name } = req.params;
+      const task = await Task.findOne(req.body);
+      if (!task) {
+        return res.status(404).json(`No task with name : ${name}`);
+      }
+      res.status(200).json(task);
+    } catch (error) {
+      res.status(500).json({ msg: error.message });
+    }
+  };
+
 module.exports = {
   getTasks,
   getTask,
   createTask,
   deleteTask,
   updateTask,
+  searchTask
 };

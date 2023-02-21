@@ -5,7 +5,7 @@
   --dark-blue: #0a1930;
   --light-blue: #1f93ff;
 
-  --color-white: #fff;
+  --color-white: #5e0351;
   --color-dark: #333;
 
   --color-grey: #eee;
@@ -14,7 +14,7 @@
   --color-purple: #9d0191;
   --color-orange: #ff7722;
 
-  --color-primary: #007bff;
+  --color-primary: #180b24;
   --color-success: #28a745;
   --color-danger: orangered;
 }
@@ -180,7 +180,7 @@ p {
 }
 
 .--color-primary {
-  color: #007bff;
+  color: #3b1010;
 }
 .--color-danger {
   color: orangered;
@@ -446,7 +446,7 @@ a:hover {
 
 .task-container {
   width: 100%;
-  max-width: 500px;
+  max-width: 1000px;
   height: auto;
   background-color: #fff;
   border: 1px solid transparent;
@@ -476,7 +476,7 @@ a:hover {
   font-size: 1.8rem;
   cursor: pointer;
   background-color: var(--color-purple);
-  color: #fff;
+  color: #faf6f6;
   border: none;
   transition: all 0.3s;
 }
@@ -490,12 +490,42 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 200%;
   background-color: #eee;
   padding: 10px;
   margin: 7px 0;
   animation: slide-in ease 0.5s;
 }
+
+/* search form */
+.search-form {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+}
+.search-form input {
+  width: 85%;
+  height: 4rem;
+  font-size: 2rem;
+  padding:  5px;
+  outline: none;
+  /* margin-right: 5px; */
+}
+.search-form button {
+  width: 15%;
+  height: 4rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  background-color: var(--color-success);
+  color: #070505;
+  border: none;
+  transition: all 0.3s;
+}
+
+.search-form button:hover {
+  background-color: var(--color-danger);
+}
+
 
 @keyframes slide-in {
   0% {
