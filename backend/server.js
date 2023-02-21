@@ -1,10 +1,10 @@
 const dotenv = require("dotenv").config();
 const express = require("express");
-const mongoose = require("mongoose");
+const dbConfig = require("./config/connectDB")
 const cors = require("cors");
 const taskRoutes = require("./routes/taskRoute");
 const logger = require("./middleware/logger");
-const path = require("path")
+const path = require("path");
 
 const app = express();
 
@@ -30,12 +30,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const PORT = process.env.PORT || 5000;
-// Connect DB & start server
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() =>
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}...`);
-    })
-  )
-  .catch((err) => console.log(err));
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}...`);
+});
