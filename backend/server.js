@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const taskRoutes = require("./routes/taskRoute");
 const logger = require("./middleware/logger");
+const path = require("path")
 
 const app = express();
 
@@ -28,7 +29,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 5000;
 // Connect DB & start server
 mongoose
   .connect(process.env.MONGO_URI)
